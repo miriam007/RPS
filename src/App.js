@@ -1,10 +1,35 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import GamePiece from './components/GamePiece';
 
 
 class App extends Component {
+  constructor(){
+    super();
+
+    this.state={
+      you:'',
+      opponent:''
+    }
+  }
+
+  // onClick
+  //play your turn
+
+  //play the computer random turn
+
+
+  //check for win
+  checkWin=()=>{
+    if (you === opponent) {
+      return 'Tie Game!'
+    } else if (you === 'rock' && opponent === 'scissors' || you === 'paper' && opponent === 'rock' || you === 'scissors' && opponent === 'paper') {
+      return 'You win!'
+    } else {
+      return 'Opponent wins. Play again?'
+    }
+  }
+
   render() {
   return (
     <div className="App">
@@ -33,6 +58,7 @@ class App extends Component {
         <GamePiece 
           image='http://outdoordesignbylucas.files.wordpress.com/2011/01/1-10-11-charcter-rocks.jpg'
           text='Rock'
+          onClick={this.onClick}
         />
         <GamePiece
           image='https://i.pinimg.com/originals/f7/9e/93/f79e930ae9803805a5889a3a7de0411a.png'
@@ -41,6 +67,7 @@ class App extends Component {
         <GamePiece
           image='https://images-na.ssl-images-amazon.com/images/I/71baCLK2M1L._SL1500_.jpg'
           text='Scissors'
+          onClick={this.onClick}
         />
       </div>
       
